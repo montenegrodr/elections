@@ -1,0 +1,16 @@
+[
+  {
+    "model": "news.candidate",
+    "pk": 1,
+    "fields": {
+      "name": "Jair Bolsonaro"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 2,
+    "fields": {
+      "name": "Geraldo Alkmin"
+    }
+  }
+]

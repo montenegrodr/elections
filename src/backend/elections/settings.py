@@ -77,11 +77,14 @@ WSGI_APPLICATION = 'elections.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -128,3 +131,12 @@ REST_FRAMEWORK = {
 }
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
+FIXTURE_DIRS = (
+   './fixtures',
+)
+
+NEWSAPI_ID = os.getenv('NEWSAPI_ID')
+NEWSAPI_KEY = os.getenv('NEWSAPI_KEY')
+NEWSAPI_PAGE = int(os.getenv('NEWSAPI_PAGE', 10))
+NEWSAPI_SIT_WAIT = int(os.getenv('NEWSAPI_SIT_WAIT', 60 * 60))

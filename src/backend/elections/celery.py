@@ -1,6 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 import os
 from celery import Celery
+from django.conf import settings
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'elections.settings')
 app = Celery('elections')
@@ -16,6 +17,6 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'fetcher': {
         'task': 'news.tasks.fetch_news',
-        'schedule': 1.0,
+        'schedule': settings.NEWSAPI_SIT_WAIT,
     },
 }
