@@ -1,5 +1,5 @@
 .PHONY: build
-build: setup-django seed-db
+build:
 	pip install -r requirements.txt
 
 .PHONY: setup-django
@@ -13,7 +13,7 @@ seed-db:
 	python manage.py loaddata ./fixtures/queries.json
 
 .PHONY: server
-server: build
+server: build setup-django seed-db
 	python manage.py runserver
 
 .PHONY: celery
