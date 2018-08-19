@@ -3,7 +3,7 @@
     "model": "news.query",
     "pk": 1,
     "fields": {
-      "query": "jair bolsonaro",
+      "query": "\"jair bolsonaro\"",
       "candidate": 1,
       "last_searched_at": null
     }
@@ -12,8 +12,116 @@
     "model": "news.query",
     "pk": 2,
     "fields": {
-      "query": "geraldo alkmin",
+      "query": "\"geraldo alkmin\"",
       "candidate": 2,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 3,
+    "fields": {
+      "query": "\"alvaro dias\"",
+      "candidate": 3,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 4,
+    "fields": {
+      "query": "\"cabo daciolo\"",
+      "candidate": 4,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 5,
+    "fields": {
+      "query": "\"ciro gomes\"",
+      "candidate": 5,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 6,
+    "fields": {
+      "query": "\"guilherme boulos\"",
+      "candidate": 6,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 7,
+    "fields": {
+      "query": "\"henrique meirelles\"",
+      "candidate": 7,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 8,
+    "fields": {
+      "query": "\"joao amoedo\"",
+      "candidate": 8,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 9,
+    "fields": {
+      "query": "\"joao goulart filho\"",
+      "candidate": 9,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 10,
+    "fields": {
+      "query": "\"jose maria eymael\"",
+      "candidate": 10,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 11,
+    "fields": {
+      "query": "lula",
+      "candidate": 11,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 12,
+    "fields": {
+      "query": "\"marina silva\"",
+      "candidate": 12,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 13,
+    "fields": {
+      "query": "\"vera lucia\"",
+      "candidate": 13,
+      "last_searched_at": null
+    }
+  },
+  {
+    "model": "news.query",
+    "pk": 14,
+    "fields": {
+      "query": "\"fernando haddad\"",
+      "candidate": 14,
       "last_searched_at": null
     }
   }

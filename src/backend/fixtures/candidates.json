@@ -10,7 +10,91 @@
     "model": "news.candidate",
     "pk": 2,
     "fields": {
-      "name": "Geraldo Alkmin"
+      "name": "Geraldo Alckmin"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 3,
+    "fields": {
+      "name": "Alvaro Dias"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 4,
+    "fields": {
+      "name": "Cabo Daciolo"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 5,
+    "fields": {
+      "name": "Ciro Gomes"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 6,
+    "fields": {
+      "name": "Guilherme Boulos"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 7,
+    "fields": {
+      "name": "Henrique Meirelles"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 8,
+    "fields": {
+      "name": "João Amoêdo"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 9,
+    "fields": {
+      "name": "João Goulart Filho "
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 10,
+    "fields": {
+      "name": "José Maria Eymael"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 11,
+    "fields": {
+      "name": "Lula"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 12,
+    "fields": {
+      "name": "Marina Silva"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 13,
+    "fields": {
+      "name": "Vera Lúcia"
+    }
+  },
+  {
+    "model": "news.candidate",
+    "pk": 14,
+    "fields": {
+      "name": "Fernando Haddad"
     }
   }
 ]

@@ -29,7 +29,9 @@ def handle_date(last_searched_at):
 
 @shared_task
 def fetch_news():
+    logger.info('Starting to fetch news from newsapi')
     for query in QueryService().all():
+        logger.info(f'Running query={query.query}')
         params = {
             'text': query.query,
             'language': ['pt'],
@@ -53,6 +55,8 @@ def fetch_news():
 
         if not stories:
             continue
+
+        logger.info(f'Found {len(stories)} stories')
 
         last_searched_at = datetime(1, 1, 1, 0, 0, tzinfo=pytz.UTC)
         for story in stories:
