@@ -12,7 +12,7 @@
     "model": "news.query",
     "pk": 2,
     "fields": {
-      "query": "\"geraldo alkmin\"",
+      "query": "\"geraldo alckmin\"",
       "candidate": 2,
       "last_searched_at": null
     }
