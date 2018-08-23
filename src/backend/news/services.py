@@ -6,6 +6,9 @@ import pytz
 import datetime
 
 from django.conf import settings
+from elasticsearch import Elasticsearch
+
+es = Elasticsearch()
 
 
 class Service(object):
@@ -48,7 +51,40 @@ class NewsService(Service):
             }, f)
         return last_published_at
 
-
     @staticmethod
     def get_recent_news_by_date(last_published_at):
         return News.objects.filter(published_at__gt=last_published_at)
+
+    @staticmethod
+    def get_buckets(candidate, gte='', lte='', interval="1h"):
+        res = es.search(
+            index='news',
+            body={
+                "size": 0,
+                "query": {
+                    "bool": {
+                        "must": {
+                            "term": {"candidate": candidate}
+                        },
+                        "filter": {
+                            "range": {
+                                "published_at": {
+                                    "gte": "2018-08-19T00:00:00.000Z",
+                                    "lte": "2018-08-20T00:00:00.000Z",
+                                }
+                            }
+                        }
+                    }
+                },
+                "aggs": {
+                    "number_news": {
+                        "date_histogram": {
+                            "field": "published_at",
+                            "interval": interval
+                        }
+                    }
+                }
+
+            }
+        )
+        return res['aggregations']['number_news']['buckets']
