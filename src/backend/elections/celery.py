@@ -17,6 +17,10 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'fetcher': {
         'task': 'news.tasks.fetch_news',
+        'schedule': settings.NEWSAPI_SIT_WAIT - 1,
+    },
+    'sync': {
+        'task': 'news.tasks.sync_index',
         'schedule': settings.NEWSAPI_SIT_WAIT,
     },
 }

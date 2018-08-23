@@ -5,6 +5,7 @@ import pytz
 import logging
 import aylien_news_api
 
+from elasticsearch import Elasticsearch, helpers
 from celery import shared_task
 from django.conf import settings
 from datetime import datetime, timedelta
@@ -18,6 +19,8 @@ aylien_news_api.configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = sett
 
 
 logger = logging.getLogger(__name__)
+
+min_date = datetime(1, 1, 1, 0, 0, tzinfo=pytz.UTC)
 
 
 def handle_date(last_searched_at):
@@ -82,3 +85,39 @@ def fetch_news():
         )
 
 
+@shared_task
+def sync_index():
+    def streamed_actions():
+        nonlocal new_last_published_at
+        last_published_at = NewsService().get_last_published_at_indexed()
+        for n in NewsService().get_recent_news_by_date(last_published_at):
+            yield {
+                '_index': 'news',
+                '_type': 'doc',
+                '_id': n.id,
+                '_source':
+                    {
+                        'title': n.title,
+                        'body': n.body,
+                        'source': n.source,
+                        'source_url': n.source_url,
+                        'author': n.author,
+                        'facebook': n.facebook,
+                        'googleplus': n.googleplus,
+                        'linkedin': n.linkedin,
+                        'permalink': n.permalink,
+                        'canonical': n.canonical,
+                        'candidate':n.candidate.name,
+                        'published_at': n.published_at
+                    }
+            }
+            new_last_published_at = max(new_last_published_at, n.published_at)
+
+    new_last_published_at = min_date
+    es = Elasticsearch()
+    for ok, response in helpers.streaming_bulk(es, streamed_actions()):
+        if not ok:
+            logger.error(f'Not indexed {response}')
+
+    if new_last_published_at > min_date:
+        NewsService().save_last_published_at_indexed(new_last_published_at)

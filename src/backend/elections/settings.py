@@ -148,3 +148,5 @@ NEWSAPI_ID = os.getenv('NEWSAPI_ID')
 NEWSAPI_KEY = os.getenv('NEWSAPI_KEY')
 NEWSAPI_PAGE = int(os.getenv('NEWSAPI_PAGE', 10))
 NEWSAPI_SIT_WAIT = int(os.getenv('NEWSAPI_SIT_WAIT', 60 * 60))
+
+CONF_FILE = os.path.expanduser('~/.elections.json')
