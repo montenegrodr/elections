@@ -7,6 +7,7 @@
 - MySQL 5.5
 - Python 3.6
 - ElasticSearch 6.*
+- nodejs 8.*
 
 ## Database CHARSET and COLLATION
 

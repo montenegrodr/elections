@@ -44,9 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -146,6 +149,10 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
 FIXTURE_DIRS = (
    './fixtures',
+)
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000/'
 )
 
 NEWSAPI_ID = os.getenv('NEWSAPI_ID')
