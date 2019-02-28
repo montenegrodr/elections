@@ -87,4 +87,7 @@ class NewsService(Service):
 
             }
         )
+
+
+
         return res['aggregations']['number_news']['buckets']
